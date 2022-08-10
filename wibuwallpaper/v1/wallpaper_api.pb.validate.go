@@ -91,6 +91,8 @@ func (m *ListWallpapersResponse) validate(all bool) error {
 
 	}
 
+	// no validation rules for NextPageToken
+
 	if len(errors) > 0 {
 		return ListWallpapersResponseMultiError(errors)
 	}
