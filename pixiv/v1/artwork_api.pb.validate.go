@@ -193,6 +193,8 @@ func (m *GetArtworkRequest) validate(all bool) error {
 
 	var errors []error
 
+	// no validation rules for ArtworkId
+
 	if len(errors) > 0 {
 		return GetArtworkRequestMultiError(errors)
 	}
