@@ -197,7 +197,7 @@ func (m *ImageUrl) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for ThumbMini
+	// no validation rules for Thumb
 
 	// no validation rules for Small
 
@@ -208,6 +208,8 @@ func (m *ImageUrl) validate(all bool) error {
 	// no validation rules for Width
 
 	// no validation rules for Height
+
+	// no validation rules for Mini
 
 	if len(errors) > 0 {
 		return ImageUrlMultiError(errors)
