@@ -60,9 +60,7 @@ func (m *User) validate(all bool) error {
 
 	// no validation rules for Name
 
-	// no validation rules for Avatar
-
-	// no validation rules for AvatarLarge
+	// no validation rules for AvatarUrl
 
 	if len(errors) > 0 {
 		return UserMultiError(errors)
