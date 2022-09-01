@@ -227,6 +227,10 @@ func (m *Wallpaper) validate(all bool) error {
 
 	// no validation rules for SourceUrl
 
+	// no validation rules for Height
+
+	// no validation rules for Width
+
 	if len(errors) > 0 {
 		return WallpaperMultiError(errors)
 	}
