@@ -211,6 +211,8 @@ func (m *ImageUrl) validate(all bool) error {
 
 	// no validation rules for Mini
 
+	// no validation rules for OriginalSize
+
 	if len(errors) > 0 {
 		return ImageUrlMultiError(errors)
 	}
