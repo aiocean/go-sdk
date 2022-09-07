@@ -60,9 +60,9 @@ func ListWallpapersHandler(w http.ResponseWriter, r *http.Request, do ListWallpa
 	}
 }
 
-type CreateWallpaperHandlerFunc = func(context.Context, *CreateWallpaperRequest) (*CreateWallpaperResponse, error)
+type SaveWallpaperHandlerFunc = func(context.Context, *SaveWallpaperRequest) (*SaveWallpaperResponse, error)
 
-func CreateWallpaperHandler(w http.ResponseWriter, r *http.Request, do CreateWallpaperHandlerFunc) {
+func SaveWallpaperHandler(w http.ResponseWriter, r *http.Request, do SaveWallpaperHandlerFunc) {
 	if err := cfutil.ApplyCors(w, r); err != nil {
 		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
 		return
@@ -71,7 +71,7 @@ func CreateWallpaperHandler(w http.ResponseWriter, r *http.Request, do CreateWal
 		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
 		return
 	}
-	var request CreateWallpaperRequest
+	var request SaveWallpaperRequest
 	if err := cfutil.ReadRequest(r, &request); err != nil {
 		cfutil.WriteError(w, r, http.StatusBadRequest, err)
 		return

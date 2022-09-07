@@ -512,22 +512,22 @@ var _ interface {
 	ErrorName() string
 } = ListWallpapersResponseValidationError{}
 
-// Validate checks the field values on CreateWallpaperRequest with the rules
+// Validate checks the field values on SaveWallpaperRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
-func (m *CreateWallpaperRequest) Validate() error {
+func (m *SaveWallpaperRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on CreateWallpaperRequest with the rules
+// ValidateAll checks the field values on SaveWallpaperRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// CreateWallpaperRequestMultiError, or nil if none found.
-func (m *CreateWallpaperRequest) ValidateAll() error {
+// SaveWallpaperRequestMultiError, or nil if none found.
+func (m *SaveWallpaperRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *CreateWallpaperRequest) validate(all bool) error {
+func (m *SaveWallpaperRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -538,7 +538,7 @@ func (m *CreateWallpaperRequest) validate(all bool) error {
 		switch v := interface{}(m.GetWallpaper()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, CreateWallpaperRequestValidationError{
+				errors = append(errors, SaveWallpaperRequestValidationError{
 					field:  "Wallpaper",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -546,7 +546,7 @@ func (m *CreateWallpaperRequest) validate(all bool) error {
 			}
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
-				errors = append(errors, CreateWallpaperRequestValidationError{
+				errors = append(errors, SaveWallpaperRequestValidationError{
 					field:  "Wallpaper",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -555,7 +555,7 @@ func (m *CreateWallpaperRequest) validate(all bool) error {
 		}
 	} else if v, ok := interface{}(m.GetWallpaper()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return CreateWallpaperRequestValidationError{
+			return SaveWallpaperRequestValidationError{
 				field:  "Wallpaper",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -564,19 +564,19 @@ func (m *CreateWallpaperRequest) validate(all bool) error {
 	}
 
 	if len(errors) > 0 {
-		return CreateWallpaperRequestMultiError(errors)
+		return SaveWallpaperRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// CreateWallpaperRequestMultiError is an error wrapping multiple validation
-// errors returned by CreateWallpaperRequest.ValidateAll() if the designated
+// SaveWallpaperRequestMultiError is an error wrapping multiple validation
+// errors returned by SaveWallpaperRequest.ValidateAll() if the designated
 // constraints aren't met.
-type CreateWallpaperRequestMultiError []error
+type SaveWallpaperRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m CreateWallpaperRequestMultiError) Error() string {
+func (m SaveWallpaperRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -585,11 +585,11 @@ func (m CreateWallpaperRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m CreateWallpaperRequestMultiError) AllErrors() []error { return m }
+func (m SaveWallpaperRequestMultiError) AllErrors() []error { return m }
 
-// CreateWallpaperRequestValidationError is the validation error returned by
-// CreateWallpaperRequest.Validate if the designated constraints aren't met.
-type CreateWallpaperRequestValidationError struct {
+// SaveWallpaperRequestValidationError is the validation error returned by
+// SaveWallpaperRequest.Validate if the designated constraints aren't met.
+type SaveWallpaperRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -597,24 +597,24 @@ type CreateWallpaperRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e CreateWallpaperRequestValidationError) Field() string { return e.field }
+func (e SaveWallpaperRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e CreateWallpaperRequestValidationError) Reason() string { return e.reason }
+func (e SaveWallpaperRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e CreateWallpaperRequestValidationError) Cause() error { return e.cause }
+func (e SaveWallpaperRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e CreateWallpaperRequestValidationError) Key() bool { return e.key }
+func (e SaveWallpaperRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e CreateWallpaperRequestValidationError) ErrorName() string {
-	return "CreateWallpaperRequestValidationError"
+func (e SaveWallpaperRequestValidationError) ErrorName() string {
+	return "SaveWallpaperRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e CreateWallpaperRequestValidationError) Error() string {
+func (e SaveWallpaperRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -626,14 +626,14 @@ func (e CreateWallpaperRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sCreateWallpaperRequest.%s: %s%s",
+		"invalid %sSaveWallpaperRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = CreateWallpaperRequestValidationError{}
+var _ error = SaveWallpaperRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -641,24 +641,24 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = CreateWallpaperRequestValidationError{}
+} = SaveWallpaperRequestValidationError{}
 
-// Validate checks the field values on CreateWallpaperResponse with the rules
+// Validate checks the field values on SaveWallpaperResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
-func (m *CreateWallpaperResponse) Validate() error {
+func (m *SaveWallpaperResponse) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on CreateWallpaperResponse with the
-// rules defined in the proto definition for this message. If any rules are
+// ValidateAll checks the field values on SaveWallpaperResponse with the rules
+// defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// CreateWallpaperResponseMultiError, or nil if none found.
-func (m *CreateWallpaperResponse) ValidateAll() error {
+// SaveWallpaperResponseMultiError, or nil if none found.
+func (m *SaveWallpaperResponse) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *CreateWallpaperResponse) validate(all bool) error {
+func (m *SaveWallpaperResponse) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -669,7 +669,7 @@ func (m *CreateWallpaperResponse) validate(all bool) error {
 		switch v := interface{}(m.GetWallpaper()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, CreateWallpaperResponseValidationError{
+				errors = append(errors, SaveWallpaperResponseValidationError{
 					field:  "Wallpaper",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -677,7 +677,7 @@ func (m *CreateWallpaperResponse) validate(all bool) error {
 			}
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
-				errors = append(errors, CreateWallpaperResponseValidationError{
+				errors = append(errors, SaveWallpaperResponseValidationError{
 					field:  "Wallpaper",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -686,7 +686,7 @@ func (m *CreateWallpaperResponse) validate(all bool) error {
 		}
 	} else if v, ok := interface{}(m.GetWallpaper()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return CreateWallpaperResponseValidationError{
+			return SaveWallpaperResponseValidationError{
 				field:  "Wallpaper",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -695,19 +695,19 @@ func (m *CreateWallpaperResponse) validate(all bool) error {
 	}
 
 	if len(errors) > 0 {
-		return CreateWallpaperResponseMultiError(errors)
+		return SaveWallpaperResponseMultiError(errors)
 	}
 
 	return nil
 }
 
-// CreateWallpaperResponseMultiError is an error wrapping multiple validation
-// errors returned by CreateWallpaperResponse.ValidateAll() if the designated
+// SaveWallpaperResponseMultiError is an error wrapping multiple validation
+// errors returned by SaveWallpaperResponse.ValidateAll() if the designated
 // constraints aren't met.
-type CreateWallpaperResponseMultiError []error
+type SaveWallpaperResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m CreateWallpaperResponseMultiError) Error() string {
+func (m SaveWallpaperResponseMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -716,11 +716,11 @@ func (m CreateWallpaperResponseMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m CreateWallpaperResponseMultiError) AllErrors() []error { return m }
+func (m SaveWallpaperResponseMultiError) AllErrors() []error { return m }
 
-// CreateWallpaperResponseValidationError is the validation error returned by
-// CreateWallpaperResponse.Validate if the designated constraints aren't met.
-type CreateWallpaperResponseValidationError struct {
+// SaveWallpaperResponseValidationError is the validation error returned by
+// SaveWallpaperResponse.Validate if the designated constraints aren't met.
+type SaveWallpaperResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -728,24 +728,24 @@ type CreateWallpaperResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e CreateWallpaperResponseValidationError) Field() string { return e.field }
+func (e SaveWallpaperResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e CreateWallpaperResponseValidationError) Reason() string { return e.reason }
+func (e SaveWallpaperResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e CreateWallpaperResponseValidationError) Cause() error { return e.cause }
+func (e SaveWallpaperResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e CreateWallpaperResponseValidationError) Key() bool { return e.key }
+func (e SaveWallpaperResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e CreateWallpaperResponseValidationError) ErrorName() string {
-	return "CreateWallpaperResponseValidationError"
+func (e SaveWallpaperResponseValidationError) ErrorName() string {
+	return "SaveWallpaperResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e CreateWallpaperResponseValidationError) Error() string {
+func (e SaveWallpaperResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -757,14 +757,14 @@ func (e CreateWallpaperResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sCreateWallpaperResponse.%s: %s%s",
+		"invalid %sSaveWallpaperResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = CreateWallpaperResponseValidationError{}
+var _ error = SaveWallpaperResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -772,4 +772,4 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = CreateWallpaperResponseValidationError{}
+} = SaveWallpaperResponseValidationError{}
