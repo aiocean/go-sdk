@@ -534,34 +534,23 @@ func (m *SaveWallpaperRequest) validate(all bool) error {
 
 	var errors []error
 
-	if all {
-		switch v := interface{}(m.GetWallpaper()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, SaveWallpaperRequestValidationError{
-					field:  "Wallpaper",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, SaveWallpaperRequestValidationError{
-					field:  "Wallpaper",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetWallpaper()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return SaveWallpaperRequestValidationError{
-				field:  "Wallpaper",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
+	// no validation rules for Id
+
+	// no validation rules for Description
+
+	// no validation rules for SizeMb
+
+	// no validation rules for ThumbnailUrl
+
+	// no validation rules for HdUrl
+
+	// no validation rules for PublisherId
+
+	// no validation rules for SourceUrl
+
+	// no validation rules for Height
+
+	// no validation rules for Width
 
 	if len(errors) > 0 {
 		return SaveWallpaperRequestMultiError(errors)
