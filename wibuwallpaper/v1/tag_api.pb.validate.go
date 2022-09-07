@@ -35,22 +35,22 @@ var (
 	_ = sort.Sort
 )
 
-// Validate checks the field values on ListTagssRequest with the rules defined
+// Validate checks the field values on ListTagsRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, the
 // first error encountered is returned, or nil if there are no violations.
-func (m *ListTagssRequest) Validate() error {
+func (m *ListTagsRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on ListTagssRequest with the rules
+// ValidateAll checks the field values on ListTagsRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// ListTagssRequestMultiError, or nil if none found.
-func (m *ListTagssRequest) ValidateAll() error {
+// ListTagsRequestMultiError, or nil if none found.
+func (m *ListTagsRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *ListTagssRequest) validate(all bool) error {
+func (m *ListTagsRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -60,19 +60,19 @@ func (m *ListTagssRequest) validate(all bool) error {
 	// no validation rules for PageToken
 
 	if len(errors) > 0 {
-		return ListTagssRequestMultiError(errors)
+		return ListTagsRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// ListTagssRequestMultiError is an error wrapping multiple validation errors
-// returned by ListTagssRequest.ValidateAll() if the designated constraints
+// ListTagsRequestMultiError is an error wrapping multiple validation errors
+// returned by ListTagsRequest.ValidateAll() if the designated constraints
 // aren't met.
-type ListTagssRequestMultiError []error
+type ListTagsRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m ListTagssRequestMultiError) Error() string {
+func (m ListTagsRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -81,11 +81,11 @@ func (m ListTagssRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m ListTagssRequestMultiError) AllErrors() []error { return m }
+func (m ListTagsRequestMultiError) AllErrors() []error { return m }
 
-// ListTagssRequestValidationError is the validation error returned by
-// ListTagssRequest.Validate if the designated constraints aren't met.
-type ListTagssRequestValidationError struct {
+// ListTagsRequestValidationError is the validation error returned by
+// ListTagsRequest.Validate if the designated constraints aren't met.
+type ListTagsRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -93,22 +93,22 @@ type ListTagssRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ListTagssRequestValidationError) Field() string { return e.field }
+func (e ListTagsRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ListTagssRequestValidationError) Reason() string { return e.reason }
+func (e ListTagsRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ListTagssRequestValidationError) Cause() error { return e.cause }
+func (e ListTagsRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ListTagssRequestValidationError) Key() bool { return e.key }
+func (e ListTagsRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ListTagssRequestValidationError) ErrorName() string { return "ListTagssRequestValidationError" }
+func (e ListTagsRequestValidationError) ErrorName() string { return "ListTagsRequestValidationError" }
 
 // Error satisfies the builtin error interface
-func (e ListTagssRequestValidationError) Error() string {
+func (e ListTagsRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -120,14 +120,14 @@ func (e ListTagssRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sListTagssRequest.%s: %s%s",
+		"invalid %sListTagsRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ListTagssRequestValidationError{}
+var _ error = ListTagsRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -135,7 +135,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ListTagssRequestValidationError{}
+} = ListTagsRequestValidationError{}
 
 // Validate checks the field values on ListTagsResponse with the rules defined
 // in the proto definition for this message. If any rules are violated, the

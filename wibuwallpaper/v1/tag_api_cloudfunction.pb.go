@@ -8,9 +8,9 @@ import (
 	"github.com/aiocean/cfutil"
 )
 
-type ListTagssHandlerFunc = func(context.Context, *ListTagssRequest) (*ListTagssResponse, error)
+type ListTagsHandlerFunc = func(context.Context, *ListTagsRequest) (*ListTagsResponse, error)
 
-func ListTagssHandler(w http.ResponseWriter, r *http.Request, do ListTagssHandlerFunc) {
+func ListTagsHandler(w http.ResponseWriter, r *http.Request, do ListTagsHandlerFunc) {
 	if err := cfutil.ApplyCors(w, r); err != nil {
 		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
 		return
@@ -19,7 +19,7 @@ func ListTagssHandler(w http.ResponseWriter, r *http.Request, do ListTagssHandle
 		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
 		return
 	}
-	var request ListTagssRequest
+	var request ListTagsRequest
 	if err := cfutil.ReadRequest(r, &request); err != nil {
 		cfutil.WriteError(w, r, http.StatusBadRequest, err)
 		return
