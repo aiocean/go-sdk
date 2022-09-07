@@ -2,6 +2,12 @@
 
 package wibuwallpaperv1
 
+import (
+	"context"
+	"net/http"
+	"github.com/aiocean/cfutil"
+)
+
 type GetWallpaperHandlerFunc = func(context.Context, *GetWallpaperRequest) (*GetWallpaperResponse, error)
 
 func GetWallpaperHandler(w http.ResponseWriter, r *http.Request, do GetWallpaperHandlerFunc) {
