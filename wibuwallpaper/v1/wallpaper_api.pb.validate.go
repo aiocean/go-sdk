@@ -956,3 +956,238 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SaveWallpaperResponseValidationError{}
+
+// Validate checks the field values on ImportWallpaperRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ImportWallpaperRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ImportWallpaperRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ImportWallpaperRequestMultiError, or nil if none found.
+func (m *ImportWallpaperRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ImportWallpaperRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Url
+
+	if len(errors) > 0 {
+		return ImportWallpaperRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ImportWallpaperRequestMultiError is an error wrapping multiple validation
+// errors returned by ImportWallpaperRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ImportWallpaperRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ImportWallpaperRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ImportWallpaperRequestMultiError) AllErrors() []error { return m }
+
+// ImportWallpaperRequestValidationError is the validation error returned by
+// ImportWallpaperRequest.Validate if the designated constraints aren't met.
+type ImportWallpaperRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ImportWallpaperRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ImportWallpaperRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ImportWallpaperRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ImportWallpaperRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ImportWallpaperRequestValidationError) ErrorName() string {
+	return "ImportWallpaperRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ImportWallpaperRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sImportWallpaperRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ImportWallpaperRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ImportWallpaperRequestValidationError{}
+
+// Validate checks the field values on ImportWallpaperResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ImportWallpaperResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ImportWallpaperResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ImportWallpaperResponseMultiError, or nil if none found.
+func (m *ImportWallpaperResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ImportWallpaperResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetWallpaper()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ImportWallpaperResponseValidationError{
+					field:  "Wallpaper",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ImportWallpaperResponseValidationError{
+					field:  "Wallpaper",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetWallpaper()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ImportWallpaperResponseValidationError{
+				field:  "Wallpaper",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ImportWallpaperResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ImportWallpaperResponseMultiError is an error wrapping multiple validation
+// errors returned by ImportWallpaperResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ImportWallpaperResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ImportWallpaperResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ImportWallpaperResponseMultiError) AllErrors() []error { return m }
+
+// ImportWallpaperResponseValidationError is the validation error returned by
+// ImportWallpaperResponse.Validate if the designated constraints aren't met.
+type ImportWallpaperResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ImportWallpaperResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ImportWallpaperResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ImportWallpaperResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ImportWallpaperResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ImportWallpaperResponseValidationError) ErrorName() string {
+	return "ImportWallpaperResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ImportWallpaperResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sImportWallpaperResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ImportWallpaperResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ImportWallpaperResponseValidationError{}
