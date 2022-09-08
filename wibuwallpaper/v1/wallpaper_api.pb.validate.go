@@ -1191,3 +1191,209 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ImportWallpaperResponseValidationError{}
+
+// Validate checks the field values on ImportBookmarkRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ImportBookmarkRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ImportBookmarkRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ImportBookmarkRequestMultiError, or nil if none found.
+func (m *ImportBookmarkRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ImportBookmarkRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Url
+
+	if len(errors) > 0 {
+		return ImportBookmarkRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ImportBookmarkRequestMultiError is an error wrapping multiple validation
+// errors returned by ImportBookmarkRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ImportBookmarkRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ImportBookmarkRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ImportBookmarkRequestMultiError) AllErrors() []error { return m }
+
+// ImportBookmarkRequestValidationError is the validation error returned by
+// ImportBookmarkRequest.Validate if the designated constraints aren't met.
+type ImportBookmarkRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ImportBookmarkRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ImportBookmarkRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ImportBookmarkRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ImportBookmarkRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ImportBookmarkRequestValidationError) ErrorName() string {
+	return "ImportBookmarkRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ImportBookmarkRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sImportBookmarkRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ImportBookmarkRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ImportBookmarkRequestValidationError{}
+
+// Validate checks the field values on ImportBookmarkResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ImportBookmarkResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ImportBookmarkResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ImportBookmarkResponseMultiError, or nil if none found.
+func (m *ImportBookmarkResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ImportBookmarkResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ImportBookmarkResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ImportBookmarkResponseMultiError is an error wrapping multiple validation
+// errors returned by ImportBookmarkResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ImportBookmarkResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ImportBookmarkResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ImportBookmarkResponseMultiError) AllErrors() []error { return m }
+
+// ImportBookmarkResponseValidationError is the validation error returned by
+// ImportBookmarkResponse.Validate if the designated constraints aren't met.
+type ImportBookmarkResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ImportBookmarkResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ImportBookmarkResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ImportBookmarkResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ImportBookmarkResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ImportBookmarkResponseValidationError) ErrorName() string {
+	return "ImportBookmarkResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ImportBookmarkResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sImportBookmarkResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ImportBookmarkResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ImportBookmarkResponseValidationError{}

@@ -111,3 +111,29 @@ func ImportWallpaperHandler(w http.ResponseWriter, r *http.Request, do ImportWal
 		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
 	}
 }
+
+type ImportBookmarkHandlerFunc = func(context.Context, *ImportBookmarkRequest) (*ImportBookmarkResponse, error)
+
+func ImportBookmarkHandler(w http.ResponseWriter, r *http.Request, do ImportBookmarkHandlerFunc) {
+	if err := cfutil.ApplyCors(w, r); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	if err := cfutil.ApplyContentType(w, r); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	var request ImportBookmarkRequest
+	if err := cfutil.ReadRequest(r, &request); err != nil {
+		cfutil.WriteError(w, r, http.StatusBadRequest, err)
+		return
+	}
+	response, err := do(r.Context(), &request)
+	if err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	if err := cfutil.WriteResponse(w, r, response); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+	}
+}
