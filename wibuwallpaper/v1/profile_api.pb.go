@@ -138,6 +138,100 @@ func (x *SaveProfileResponse) GetProfile() *Profile {
 	return nil
 }
 
+type GetProfileRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *GetProfileRequest) Reset() {
+	*x = GetProfileRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_wibuwallpaper_v1_profile_api_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetProfileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileRequest) ProtoMessage() {}
+
+func (x *GetProfileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_wibuwallpaper_v1_profile_api_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileRequest.ProtoReflect.Descriptor instead.
+func (*GetProfileRequest) Descriptor() ([]byte, []int) {
+	return file_wibuwallpaper_v1_profile_api_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetProfileRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type GetProfileResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Profile *Profile `protobuf:"bytes,1,opt,name=profile,proto3" json:"profile,omitempty"`
+}
+
+func (x *GetProfileResponse) Reset() {
+	*x = GetProfileResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_wibuwallpaper_v1_profile_api_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetProfileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileResponse) ProtoMessage() {}
+
+func (x *GetProfileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_wibuwallpaper_v1_profile_api_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileResponse.ProtoReflect.Descriptor instead.
+func (*GetProfileResponse) Descriptor() ([]byte, []int) {
+	return file_wibuwallpaper_v1_profile_api_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetProfileResponse) GetProfile() *Profile {
+	if x != nil {
+		return x.Profile
+	}
+	return nil
+}
+
 var File_wibuwallpaper_v1_profile_api_proto protoreflect.FileDescriptor
 
 var file_wibuwallpaper_v1_profile_api_proto_rawDesc = []byte{
@@ -155,6 +249,13 @@ var file_wibuwallpaper_v1_profile_api_proto_rawDesc = []byte{
 	0x20, 0x0a, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x06,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f,
 	0x6e, 0x22, 0x4a, 0x0a, 0x13, 0x53, 0x61, 0x76, 0x65, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x07, 0x70, 0x72, 0x6f, 0x66,
+	0x69, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x77, 0x69, 0x62, 0x75,
+	0x77, 0x61, 0x6c, 0x6c, 0x70, 0x61, 0x70, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x72, 0x6f,
+	0x66, 0x69, 0x6c, 0x65, 0x52, 0x07, 0x70, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x22, 0x23, 0x0a,
+	0x11, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02,
+	0x69, 0x64, 0x22, 0x49, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x07, 0x70, 0x72, 0x6f, 0x66,
 	0x69, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x77, 0x69, 0x62, 0x75,
 	0x77, 0x61, 0x6c, 0x6c, 0x70, 0x61, 0x70, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x72, 0x6f,
@@ -186,19 +287,22 @@ func file_wibuwallpaper_v1_profile_api_proto_rawDescGZIP() []byte {
 	return file_wibuwallpaper_v1_profile_api_proto_rawDescData
 }
 
-var file_wibuwallpaper_v1_profile_api_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_wibuwallpaper_v1_profile_api_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_wibuwallpaper_v1_profile_api_proto_goTypes = []interface{}{
 	(*SaveProfileRequest)(nil),  // 0: wibuwallpaper.v1.SaveProfileRequest
 	(*SaveProfileResponse)(nil), // 1: wibuwallpaper.v1.SaveProfileResponse
-	(*Profile)(nil),             // 2: wibuwallpaper.v1.Profile
+	(*GetProfileRequest)(nil),   // 2: wibuwallpaper.v1.GetProfileRequest
+	(*GetProfileResponse)(nil),  // 3: wibuwallpaper.v1.GetProfileResponse
+	(*Profile)(nil),             // 4: wibuwallpaper.v1.Profile
 }
 var file_wibuwallpaper_v1_profile_api_proto_depIdxs = []int32{
-	2, // 0: wibuwallpaper.v1.SaveProfileResponse.profile:type_name -> wibuwallpaper.v1.Profile
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	4, // 0: wibuwallpaper.v1.SaveProfileResponse.profile:type_name -> wibuwallpaper.v1.Profile
+	4, // 1: wibuwallpaper.v1.GetProfileResponse.profile:type_name -> wibuwallpaper.v1.Profile
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_wibuwallpaper_v1_profile_api_proto_init() }
@@ -232,6 +336,30 @@ func file_wibuwallpaper_v1_profile_api_proto_init() {
 				return nil
 			}
 		}
+		file_wibuwallpaper_v1_profile_api_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetProfileRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_wibuwallpaper_v1_profile_api_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetProfileResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -239,7 +367,7 @@ func file_wibuwallpaper_v1_profile_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_wibuwallpaper_v1_profile_api_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
