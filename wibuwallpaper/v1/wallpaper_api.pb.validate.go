@@ -544,7 +544,68 @@ func (m *SaveWallpaperRequest) validate(all bool) error {
 
 	// no validation rules for HdUrl
 
-	// no validation rules for PublisherId
+	if all {
+		switch v := interface{}(m.GetPublisher()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, SaveWallpaperRequestValidationError{
+					field:  "Publisher",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, SaveWallpaperRequestValidationError{
+					field:  "Publisher",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetPublisher()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SaveWallpaperRequestValidationError{
+				field:  "Publisher",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	for idx, item := range m.GetTags() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, SaveWallpaperRequestValidationError{
+						field:  fmt.Sprintf("Tags[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, SaveWallpaperRequestValidationError{
+						field:  fmt.Sprintf("Tags[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SaveWallpaperRequestValidationError{
+					field:  fmt.Sprintf("Tags[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
 
 	// no validation rules for SourceUrl
 
