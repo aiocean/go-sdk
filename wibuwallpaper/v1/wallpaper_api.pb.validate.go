@@ -292,6 +292,8 @@ func (m *ListWallpapersFilter) validate(all bool) error {
 
 	var errors []error
 
+	// no validation rules for Term
+
 	if len(errors) > 0 {
 		return ListWallpapersFilterMultiError(errors)
 	}
