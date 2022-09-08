@@ -746,6 +746,8 @@ func (m *SaveWallpaperRequest) validate(all bool) error {
 
 	// no validation rules for Width
 
+	// no validation rules for AgeRating
+
 	if len(errors) > 0 {
 		return SaveWallpaperRequestMultiError(errors)
 	}

@@ -254,6 +254,8 @@ func (m *Wallpaper) validate(all bool) error {
 		}
 	}
 
+	// no validation rules for AgeRating
+
 	if len(errors) > 0 {
 		return WallpaperMultiError(errors)
 	}
