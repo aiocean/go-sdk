@@ -33,3 +33,55 @@ func ListTagsHandler(w http.ResponseWriter, r *http.Request, do ListTagsHandlerF
 		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
 	}
 }
+
+type GetTagHandlerFunc = func(context.Context, *GetTagRequest) (*GetTagResponse, error)
+
+func GetTagHandler(w http.ResponseWriter, r *http.Request, do GetTagHandlerFunc) {
+	if err := cfutil.ApplyCors(w, r); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	if err := cfutil.ApplyContentType(w, r); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	var request GetTagRequest
+	if err := cfutil.ReadRequest(r, &request); err != nil {
+		cfutil.WriteError(w, r, http.StatusBadRequest, err)
+		return
+	}
+	response, err := do(r.Context(), &request)
+	if err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	if err := cfutil.WriteResponse(w, r, response); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+	}
+}
+
+type CreateTagHandlerFunc = func(context.Context, *CreateTagRequest) (*CreateTagResponse, error)
+
+func CreateTagHandler(w http.ResponseWriter, r *http.Request, do CreateTagHandlerFunc) {
+	if err := cfutil.ApplyCors(w, r); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	if err := cfutil.ApplyContentType(w, r); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	var request CreateTagRequest
+	if err := cfutil.ReadRequest(r, &request); err != nil {
+		cfutil.WriteError(w, r, http.StatusBadRequest, err)
+		return
+	}
+	response, err := do(r.Context(), &request)
+	if err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+		return
+	}
+	if err := cfutil.WriteResponse(w, r, response); err != nil {
+		cfutil.WriteError(w, r, http.StatusInternalServerError, err)
+	}
+}

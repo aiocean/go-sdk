@@ -272,3 +272,234 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListTagsResponseValidationError{}
+
+// Validate checks the field values on GetTagRequest with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *GetTagRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetTagRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in GetTagRequestMultiError, or
+// nil if none found.
+func (m *GetTagRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetTagRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return GetTagRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetTagRequestMultiError is an error wrapping multiple validation errors
+// returned by GetTagRequest.ValidateAll() if the designated constraints
+// aren't met.
+type GetTagRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTagRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTagRequestMultiError) AllErrors() []error { return m }
+
+// GetTagRequestValidationError is the validation error returned by
+// GetTagRequest.Validate if the designated constraints aren't met.
+type GetTagRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTagRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTagRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTagRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTagRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTagRequestValidationError) ErrorName() string { return "GetTagRequestValidationError" }
+
+// Error satisfies the builtin error interface
+func (e GetTagRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTagRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTagRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTagRequestValidationError{}
+
+// Validate checks the field values on CreateTagRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *CreateTagRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTagRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreateTagRequestMultiError, or nil if none found.
+func (m *CreateTagRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTagRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetTag()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTagRequestValidationError{
+					field:  "Tag",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTagRequestValidationError{
+					field:  "Tag",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTag()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTagRequestValidationError{
+				field:  "Tag",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return CreateTagRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTagRequestMultiError is an error wrapping multiple validation errors
+// returned by CreateTagRequest.ValidateAll() if the designated constraints
+// aren't met.
+type CreateTagRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTagRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTagRequestMultiError) AllErrors() []error { return m }
+
+// CreateTagRequestValidationError is the validation error returned by
+// CreateTagRequest.Validate if the designated constraints aren't met.
+type CreateTagRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTagRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTagRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTagRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTagRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTagRequestValidationError) ErrorName() string { return "CreateTagRequestValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CreateTagRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTagRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTagRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTagRequestValidationError{}
