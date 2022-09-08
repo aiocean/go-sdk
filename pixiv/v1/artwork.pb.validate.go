@@ -234,6 +234,14 @@ func (m *Artwork) validate(all bool) error {
 
 	}
 
+	// no validation rules for LikeCount
+
+	// no validation rules for ViewCount
+
+	// no validation rules for CommentCount
+
+	// no validation rules for BookmarkCount
+
 	if len(errors) > 0 {
 		return ArtworkMultiError(errors)
 	}
