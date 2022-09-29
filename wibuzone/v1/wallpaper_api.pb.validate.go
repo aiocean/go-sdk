@@ -294,6 +294,10 @@ func (m *ListWallpapersFilter) validate(all bool) error {
 
 	// no validation rules for Term
 
+	// no validation rules for PublisherId
+
+	// no validation rules for LikedById
+
 	if len(errors) > 0 {
 		return ListWallpapersFilterMultiError(errors)
 	}
