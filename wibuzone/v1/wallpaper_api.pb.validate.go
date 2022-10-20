@@ -1640,3 +1640,209 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetRandomWallpaperResponseValidationError{}
+
+// Validate checks the field values on DeleteWallpaperRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *DeleteWallpaperRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DeleteWallpaperRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DeleteWallpaperRequestMultiError, or nil if none found.
+func (m *DeleteWallpaperRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DeleteWallpaperRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WallpaperId
+
+	if len(errors) > 0 {
+		return DeleteWallpaperRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// DeleteWallpaperRequestMultiError is an error wrapping multiple validation
+// errors returned by DeleteWallpaperRequest.ValidateAll() if the designated
+// constraints aren't met.
+type DeleteWallpaperRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteWallpaperRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteWallpaperRequestMultiError) AllErrors() []error { return m }
+
+// DeleteWallpaperRequestValidationError is the validation error returned by
+// DeleteWallpaperRequest.Validate if the designated constraints aren't met.
+type DeleteWallpaperRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteWallpaperRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteWallpaperRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteWallpaperRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteWallpaperRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteWallpaperRequestValidationError) ErrorName() string {
+	return "DeleteWallpaperRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteWallpaperRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteWallpaperRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteWallpaperRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteWallpaperRequestValidationError{}
+
+// Validate checks the field values on DeleteWallpaperResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *DeleteWallpaperResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DeleteWallpaperResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DeleteWallpaperResponseMultiError, or nil if none found.
+func (m *DeleteWallpaperResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DeleteWallpaperResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return DeleteWallpaperResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// DeleteWallpaperResponseMultiError is an error wrapping multiple validation
+// errors returned by DeleteWallpaperResponse.ValidateAll() if the designated
+// constraints aren't met.
+type DeleteWallpaperResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteWallpaperResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteWallpaperResponseMultiError) AllErrors() []error { return m }
+
+// DeleteWallpaperResponseValidationError is the validation error returned by
+// DeleteWallpaperResponse.Validate if the designated constraints aren't met.
+type DeleteWallpaperResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteWallpaperResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteWallpaperResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteWallpaperResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteWallpaperResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteWallpaperResponseValidationError) ErrorName() string {
+	return "DeleteWallpaperResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteWallpaperResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteWallpaperResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteWallpaperResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteWallpaperResponseValidationError{}
